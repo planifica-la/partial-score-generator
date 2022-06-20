@@ -1,0 +1,8 @@
+<mat-list style="width: 50%; margin: 12px auto;">
+	<mat-list-item *ngFor="let section of sections" style="width: 100%;">
+		{{ section.name }} - {{ section.level | sectionLevel }}
+		<span style="flex: 1 1 auto;"></span>
+		<button mat-mini-fab color="primary" (click)="showDetail(section.id)"><mat-icon>launch</mat-icon></button>
+		<button style="margin-left: 6px;" mat-mini-fab color="warn" (click)="deleteSection(section.id)"><mat-icon>delete</mat-icon></button>
+	</mat-list-item>
+</mat-list>

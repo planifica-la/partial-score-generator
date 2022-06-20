@@ -1,0 +1,11 @@
+<div style="margin: 16px auto; width: 50%;" *ngIf="(user$ | async) as user">
+	<h2>User Profile</h2>
+	<p>Display Name: {{ user.displayName }}</p>
+	<p>Email: {{ user.email }}</p>
+	<div *ngIf="(profile$ | async) as profile">
+		<p>Phone: {{ profile.phone }}</p>
+		<p>School: {{ profile.schoolName }}</p>
+		<p>Plan: {{ (plan | async)?.name }}</p>
+		<p>Expire: {{ profile.expiration.toDate() | date }}</p>
+	</div>
+</div>

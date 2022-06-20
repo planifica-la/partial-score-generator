@@ -1,0 +1,17 @@
+<div class="md:w-1/2 sm:w-10/12 mx-auto my-4">
+	<h2 class="text-3xl">Sign Up</h2>
+	<mat-form-field class="w-full">
+		<mat-label>Email</mat-label>
+		<input matInput type="email" [formControl]="email" required>
+		<mat-error *ngIf="email.invalid">{{ emailErrors }}</mat-error>
+	</mat-form-field>
+	<mat-form-field class="w-full">
+		<mat-label>Password</mat-label>
+		<input matInput type="password" [formControl]="password" required>
+		<mat-error *ngIf="password.invalid">You must supply a password.</mat-error>
+	</mat-form-field>
+	<div class="grid grid-cols-4 gap-4 content-between">
+		<a mat-raised-button color="accent" [routerLink]="['/auth', 'login']">Login</a>
+		<button [disabled]="email.invalid || password.invalid || working" mat-raised-button color="primary" type="button" (click)="register()">SignUp</button>
+	</div>
+</div>

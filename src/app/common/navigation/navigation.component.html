@@ -1,0 +1,33 @@
+<mat-toolbar color="primary" *ngIf="(user$ | async); else noUser">
+	<!-- <a mat-icon-button><mat-icon>menu</mat-icon></a> -->
+	<span style="cursor: pointer;" class="cursor-pointer" [routerLink]="['/dashboard']">Partial Score Generator</span>
+	<span style="flex: 1 1 auto;" class="flex-auto"></span>
+	<a mat-icon-button routerLink="/sections" title="Sections">
+		<mat-icon>school</mat-icon>
+	</a>
+	<a mat-icon-button routerLink="/students" title="Students">
+		<mat-icon>groups</mat-icon>
+	</a>
+	<a mat-icon-button routerLink="/tools" title="Tools">
+		<mat-icon>handyman</mat-icon>
+	</a>
+	<a mat-icon-button routerLink="/users/profile" title="Profile">
+		<mat-icon>account_circle</mat-icon>
+	</a>
+	<button mat-icon-button (click)="logout()" title="Logout">
+		<mat-icon>logout</mat-icon>
+	</button>
+</mat-toolbar>
+<ng-template #noUser>
+	<mat-toolbar color="primary">
+		<!-- <a mat-icon-button><mat-icon>menu</mat-icon></a> -->
+		<span style="cursor: pointer;" class="cursor-pointer" [routerLink]="['/']">Partial Score Generator</span>
+		<span style="flex: 1 1 auto;" class="flex-auto"></span>
+		<a class="nav-link" [routerLink]="['/']">Home</a>
+		<a class="nav-link" [routerLink]="['/about']">About</a>
+		<a class="nav-link" [routerLink]="['/pricing']">Pricing</a>
+		<a class="nav-link" [routerLink]="['/contact']">Contact</a>
+		<a mat-button [routerLink]="['/auth', 'registry']">Sign Up</a>
+		<a mat-raised-button [routerLink]="['/auth', 'login']">Login</a>
+	</mat-toolbar>
+</ng-template>

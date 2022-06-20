@@ -1,0 +1,22 @@
+<form [formGroup]="studentForm" style="width: 50%; margin: 4px auto;" class="w-1/2 mx-auto my-4">
+	<h2>Add a New Student</h2>
+	<mat-form-field style="width: 50%" class="w-full">
+		<mat-label>Firstname</mat-label>
+		<input matInput type="text" formControlName="firstname" required>
+	</mat-form-field>
+	<mat-form-field style="width: 50%" class="w-full">
+		<mat-label>Lastname</mat-label>
+		<input matInput type="text" formControlName="lastname" required>
+	</mat-form-field>
+	<mat-form-field style="width: 100%" class="w-full">
+		<mat-label>Section</mat-label>
+		<mat-select class="w-full" formControlName="section" required>
+			<mat-option *ngFor="let section of (sections | async)" [value]="sectionRef(section)">{{ section.name }}</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<div class="grid grid-cols-4 gap-4 content-between">
+		<button [disabled]="studentForm.invalid || working" color="primary" mat-raised-button (click)="addStudent()">Save</button>
+	</div>
+</form>
+
+<app-student-list [students]="students | async"></app-student-list>

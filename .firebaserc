@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "partial-score-generator": {
+      "hosting": {
+        "PartialScoreGenerator": [
+          "partial-score-generator"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "partial-score-generator"
+  }
+}

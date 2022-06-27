@@ -13,6 +13,8 @@ import { MatListModule } from '@angular/material/list';
 import { MatTableModule } from '@angular/material/table';
 import { MatCardModule } from '@angular/material/card';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { LayoutModule } from '@angular/cdk/layout';
 
 import { AppRoutingModule } from './app-routing.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -67,7 +69,6 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     AboutComponent,
     PricingComponent,
     ContactComponent,
-    NavigationComponent,
     DashboardComponent,
     SubjectListComponent,
     SubjectDetailComponent,
@@ -77,6 +78,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     ScoreGeneratorComponent,
     ToolDashboardComponent,
     AverageCalculatorComponent,
+    NavigationComponent,
   ],
   imports: [
     BrowserModule,
@@ -103,7 +105,9 @@ import { ServiceWorkerModule } from '@angular/service-worker';
       // Register the ServiceWorker as soon as the application is stable
       // or after 30 seconds (whichever comes first).
       registrationStrategy: 'registerWhenStable:30000'
-    })
+    }),
+    LayoutModule,
+    MatSidenavModule
   ],
   providers: [],
   bootstrap: [AppComponent]

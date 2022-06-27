@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Auth, createUserWithEmailAndPassword } from '@angular/fire/auth';
 import { doc, Firestore, DocumentReference, setDoc, Timestamp } from '@angular/fire/firestore';
@@ -14,8 +14,8 @@ import { Plan } from '../../plan';
 })
 export class RegisterComponent implements OnInit {
 
-  email: FormControl = new FormControl('', Validators.email);
-  password: FormControl = new FormControl('', Validators.required);
+  email: UntypedFormControl = new UntypedFormControl('', Validators.email);
+  password: UntypedFormControl = new UntypedFormControl('', Validators.required);
   working = false;
 
   constructor(

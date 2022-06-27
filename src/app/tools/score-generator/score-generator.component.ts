@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { MatTable } from '@angular/material/table';
 import {
   setDoc,
@@ -22,9 +22,9 @@ interface Score {
 })
 export class ScoreGeneratorComponent implements OnInit {
 
-  indicators: FormControl = new FormControl(8, Validators.required);
-  margin: FormControl = new FormControl(4, Validators.required);
-  average: FormControl = new FormControl(85, Validators.required);
+  indicators: UntypedFormControl = new UntypedFormControl(8, Validators.required);
+  margin: UntypedFormControl = new UntypedFormControl(4, Validators.required);
+  average: UntypedFormControl = new UntypedFormControl(85, Validators.required);
 
   @ViewChild(MatTable) table!: MatTable<Score>;
 

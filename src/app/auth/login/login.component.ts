@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,8 +11,8 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class LoginComponent implements OnInit {
 
-  email: FormControl = new FormControl('', Validators.email);
-  password: FormControl = new FormControl('', Validators.required);
+  email: UntypedFormControl = new UntypedFormControl('', Validators.email);
+  password: UntypedFormControl = new UntypedFormControl('', Validators.required);
   working = false;
 
   constructor(

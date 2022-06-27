@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl } from '@angular/forms';
+import { UntypedFormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-average-calculator',
@@ -8,7 +8,7 @@ import { FormControl } from '@angular/forms';
 })
 export class AverageCalculatorComponent implements OnInit {
 
-  partial: FormControl = new FormControl(85);
+  partial: UntypedFormControl = new UntypedFormControl(85);
   record: number[] = [];
 
   constructor() { }

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { UntypedFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { MatDialog } from '@angular/material/dialog';
 import { StudentDetailComponent } from '../student-detail/student-detail.component';
@@ -42,7 +42,7 @@ export class StudentDashboardComponent implements OnInit {
     private auth: Auth,
     private firestore: Firestore,
     private sb: MatSnackBar,
-    private fb: FormBuilder,
+    private fb: UntypedFormBuilder,
     private dialog: MatDialog,
     ) {
     authState(this.auth).subscribe(user => {

@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, Validators } from '@angular/forms';
+import { UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Auth, sendPasswordResetEmail } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
@@ -11,7 +11,7 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 })
 export class PasswordRecoveryComponent implements OnInit {
 
-  email: FormControl = new FormControl('', Validators.email);
+  email: UntypedFormControl = new UntypedFormControl('', Validators.email);
   working = false;
 
   constructor(

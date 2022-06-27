@@ -1,4 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { MatDialog } from '@angular/material/dialog';
+import { SubjectDetailComponent } from '../subject-detail/subject-detail.component';
+import {
+  Firestore,
+  doc,
+  docData,
+  deleteDoc,
+  DocumentReference
+} from '@angular/fire/firestore';
+
+import { Section } from '../../section';
+import { Subject } from '../../subject';
+import { Student } from '../../student';
 
 @Component({
   selector: 'app-subject-list',
@@ -7,9 +21,38 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SubjectListComponent implements OnInit {
 
-  constructor() { }
+  @Input() subjects: Subject[] | null = [];
+
+  constructor(
+    private firestore: Firestore,
+    private sb: MatSnackBar,
+    private dialog: MatDialog,
+    ) { }
 
   ngOnInit(): void {
+  }
+
+  showDetail(id?: string) {
+    if (id && this.subjects) {
+      const subject = this.subjects.find(subject => subject.id === id);
+      this.dialog.open(SubjectDetailComponent, {
+        data: subject,
+      });
+    }
+  }
+
+  deleteSubject(id?: string) {
+    if (id) {
+      deleteDoc(
+        doc(this.firestore, 'subjects', id)
+        ).then(() => {
+          this.sb.open('Subject delete success', 'Close', { duration: 2500 });
+        })
+    }
+  }
+
+  subjectSection(ref: DocumentReference<Section>) {
+    return docData<Section>(ref);
   }
 
 }

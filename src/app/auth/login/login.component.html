@@ -1,5 +1,5 @@
-<div class="w-1/2 mx-auto my-4">
-	<h2 class="text-3xl">Sign In</h2>
+<div class="w-12 mx-auto my-4">
+	<h2>Sign In</h2>
 	<mat-form-field class="w-full">
 		<mat-label>Email</mat-label>
 		<input matInput type="email" [formControl]="email" required>
@@ -10,6 +10,9 @@
 		<input matInput type="password" [formControl]="password" required>
 		<mat-error *ngIf="password.invalid">You must supply a password.</mat-error>
 	</mat-form-field>
+	<p class="text-center">
+		<a routerLink="/auth/password-recovery">Forgotten password</a>?
+	</p>
 	<div class="grid grid-cols-4 gap-4 content-between">
 		<a mat-raised-button color="accent" [routerLink]="['/auth', 'register']">Register</a>
 		<button [disabled]="email.invalid || password.invalid || working" mat-raised-button color="primary" type="button" (click)="login()">Log In</button>

@@ -9,8 +9,15 @@
 	<p>
 		In the near future, it'll have several new tools to keep fighting to make you most productive and less repetitive.
 	</p>
-	<p>
-		To get started just <a mat-raised-button color="accent" routerLink="/auth/registry">Sign Up</a> or <a mat-raised-button color="primary" routerLink="/auth/login">Log In</a> to your account.
+	<p *ngIf="(user$ | async) else noUser">
+		<b>Here you have some interest links</b>: <br>
+		You have available some <a mat-raised-button color="link" routerLink="/">tools</a>. You can keep track on your <a mat-raised-button color="link" routerLink="/students">students</a>, <a mat-raised-button color="link" routerLink="/sections">sections</a>, <a mat-raised-button color="link" routerLink="/subjects">subjects</a>, and here you can check and modify <a mat-raised-button color="link" routerLink="/users/profile">your profile</a>
 	</p>
+	<ng-template #noUser>
+		<p>
+			To get started just <a mat-raised-button color="accent" routerLink="/auth/registry">Sign Up</a> or <a mat-raised-button color="primary" routerLink="/auth/login">Log In</a> to your account.
+		</p>
+	</ng-template>
+
 </div>
-<p style="text-align: center;">&copy;{{ year }} Otoniel Reyes &lt;<a href="mailto:kenliten@otonielreyes.com">kenliten@otonielreyes.com</a>&gt;</p>     
+<p style="text-align: center;">&copy;{{ year }} Otoniel Reyes &lt;<a href="mailto:kenliten@otonielreyes.com">kenliten@otonielreyes.com</a>&gt;</p>

@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 
-import { 
-  AuthGuard, 
-  redirectLoggedInTo, 
-  redirectUnauthorizedTo 
+import {
+  AuthGuard,
+  redirectLoggedInTo,
+  redirectUnauthorizedTo
 } from '@angular/fire/auth-guard';
 
 import { AboutComponent } from './site/about/about.component';
@@ -23,6 +23,8 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 import { StudentDashboardComponent } from './students/student-dashboard/student-dashboard.component';
 
 import { SectionDashboardComponent } from './sections/section-dashboard/section-dashboard.component';
+
+import { SubjectDashboardComponent } from './subjects/subject-dashboard/subject-dashboard.component';
 
 import { ToolDashboardComponent } from './tools/tool-dashboard/tool-dashboard.component';
 import { ScoreGeneratorComponent } from './tools/score-generator/score-generator.component';
@@ -54,6 +56,8 @@ const routes: Routes = [
 
   // Sections routes
   { path: 'sections', component: SectionDashboardComponent, canActivate: [AuthGuard], data: { authGuardPipe: redirectUnauthorized } },
+
+  { path: 'subjects', component: SubjectDashboardComponent, canActivate: [AuthGuard], data: { authGuardPipe: redirectUnauthorized } },
 
   { path: 'tools', children: [
     { path: '', component: ToolDashboardComponent },

@@ -1,17 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { 
-  doc,
-  docData,
-  Firestore,
-  Timestamp,
-  DocumentReference
-} from '@angular/fire/firestore';
-import { Auth, signInWithEmailAndPassword, signOut } from '@angular/fire/auth';
+import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
 import { MatSnackBar } from '@angular/material/snack-bar';
-
-import { UserProfile } from '../../user-profile';
 
 @Component({
   selector: 'app-login',
@@ -26,7 +17,6 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private auth: Auth,
-    private firestore: Firestore,
     private router: Router,
     private sb: MatSnackBar,
     ) {
@@ -39,7 +29,7 @@ export class LoginComponent implements OnInit {
     this.working = true;
     const email = this.email.value;
     const password = this.password.value;
-    signInWithEmailAndPassword(this.auth, email, password).then((cred) => {
+    signInWithEmailAndPassword(this.auth, email, password).then(() => {
       // docData<UserProfile>(
       //   doc(this.firestore, 'users', cred.user.uid) as DocumentReference<UserProfile>
       //   ).subscribe(profile => {

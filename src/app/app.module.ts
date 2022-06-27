@@ -48,6 +48,7 @@ import { SectionLevelPipe } from './section-level.pipe';
 import { ScoreGeneratorComponent } from './tools/score-generator/score-generator.component';
 import { ToolDashboardComponent } from './tools/tool-dashboard/tool-dashboard.component';
 import { AverageCalculatorComponent } from './tools/average-calculator/average-calculator.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
 
 @NgModule({
   declarations: [
@@ -96,7 +97,13 @@ import { AverageCalculatorComponent } from './tools/average-calculator/average-c
     MatGridListModule,
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideAuth(() => getAuth()),
-    provideFirestore(() => getFirestore())
+    provideFirestore(() => getFirestore()),
+    ServiceWorkerModule.register('ngsw-worker.js', {
+      enabled: environment.production,
+      // Register the ServiceWorker as soon as the application is stable
+      // or after 30 seconds (whichever comes first).
+      registrationStrategy: 'registerWhenStable:30000'
+    })
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { UntypedFormBuilder } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { MatDialog } from '@angular/material/dialog';
-import { StudentDetailComponent } from '../student-detail/student-detail.component';
 import {
   collectionData,
   collection,
@@ -12,8 +10,6 @@ import {
   Firestore,
   addDoc,
   doc,
-  docData,
-  DocumentReference
 } from '@angular/fire/firestore';
 import { authState, Auth } from '@angular/fire/auth';
 import { Observable, of } from 'rxjs';
@@ -43,7 +39,6 @@ export class StudentDashboardComponent implements OnInit {
     private firestore: Firestore,
     private sb: MatSnackBar,
     private fb: UntypedFormBuilder,
-    private dialog: MatDialog,
     ) {
     authState(this.auth).subscribe(user => {
       if (!user) {
@@ -92,7 +87,7 @@ export class StudentDashboardComponent implements OnInit {
     if (!section.id) {
       return;
     }
-    
+
     return doc(this.firestore, 'sections', section.id);
   }
 

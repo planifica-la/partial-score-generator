@@ -51,6 +51,7 @@ import { ScoreGeneratorComponent } from './tools/score-generator/score-generator
 import { ToolDashboardComponent } from './tools/tool-dashboard/tool-dashboard.component';
 import { AverageCalculatorComponent } from './tools/average-calculator/average-calculator.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
+import { SubjectNamePipe } from './subject-name.pipe';
 
 @NgModule({
   declarations: [
@@ -79,6 +80,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
     ToolDashboardComponent,
     AverageCalculatorComponent,
     NavigationComponent,
+    SubjectNamePipe,
   ],
   imports: [
     BrowserModule,

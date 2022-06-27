@@ -7,9 +7,11 @@
     <mat-nav-list>
       <ng-container *ngIf="(user$ | async); else noUser">
       	<a mat-list-item routerLink="/sections">Sections</a>
+      	<a mat-list-item routerLink="/subjects">Subjects</a>
       	<a mat-list-item routerLink="/students">Students</a>
       	<a mat-list-item routerLink="/tools">Tools</a>
       	<a mat-list-item routerLink="/users/profile">Profile</a>
+      	<button mat-list-item (click)="logout()">Log Out</button>
       </ng-container>
       <ng-template #noUser>
         <a mat-list-item class="nav-link" [routerLink]="['/']">Home</a>
@@ -32,6 +34,7 @@
       <ng-container *ngIf="(user$ | async); else noUserInTop">
       	<span style="cursor: pointer;" [routerLink]="['/dashboard']">Partial Score Generator</span>
       	<span style="flex: 1 1 auto;"></span>
+      	<a mat-icon-button routerLink="/users/profile"><mat-icon>account_circle</mat-icon></a>
       	<button mat-icon-button (click)="logout()" title="Logout">
       		<mat-icon>logout</mat-icon>
       	</button>

@@ -1,1 +1,8 @@
-<p>subject-list works!</p>
+<mat-list style="width: 50%; margin: 12px auto;">
+	<mat-list-item *ngFor="let subject of subjects" style="width: 100%;">
+		{{ subject.name | subjectName }} {{ subjectSection(subject.section)?.name }}
+		<span style="flex: 1 1 auto;"></span>
+		<button mat-mini-fab color="primary" (click)="showDetail(subject.id)"><mat-icon>launch</mat-icon></button>
+		<button style="margin-left: 6px;" mat-mini-fab color="warn" (click)="deleteSubject(subject.id)"><mat-icon>delete</mat-icon></button>
+	</mat-list-item>
+</mat-list>

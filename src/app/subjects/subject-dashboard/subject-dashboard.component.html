@@ -1,1 +1,20 @@
-<p>subject-dashboard works!</p>
+<form [formGroup]="subjectForm" style="width: 50%; margin: 4px auto;" class="w-1/2 mx-auto my-4">
+	<h2>Add a New Subject</h2>
+	<mat-form-field style="width: 100%" class="w-full">
+		<mat-label>Subject</mat-label>
+    <mat-select class="w-full" formControlName="name" required>
+			<mat-option *ngFor="let sub of subjectsNames" [value]="sub">{{ sub | subjectName }}</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<mat-form-field style="width: 100%" class="w-full">
+		<mat-label>Section</mat-label>
+		<mat-select class="w-full" formControlName="section" required>
+			<mat-option *ngFor="let section of (sections | async)" [value]="sectionRef(section)">{{ section.name }}</mat-option>
+		</mat-select>
+	</mat-form-field>
+	<div class="grid grid-cols-4 gap-4 content-between">
+		<button [disabled]="subjectForm.invalid || working" color="primary" mat-raised-button (click)="addSubject()">Save</button>
+	</div>
+</form>
+
+<app-subject-list [subjects]="subjects | async"></app-subject-list>

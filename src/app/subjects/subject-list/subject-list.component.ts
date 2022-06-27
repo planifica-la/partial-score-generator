@@ -9,10 +9,10 @@ import {
   deleteDoc,
   DocumentReference
 } from '@angular/fire/firestore';
+import { of } from 'rxjs';
 
 import { Section } from '../../section';
 import { Subject } from '../../subject';
-import { Student } from '../../student';
 
 @Component({
   selector: 'app-subject-list',
@@ -22,12 +22,23 @@ import { Student } from '../../student';
 export class SubjectListComponent implements OnInit {
 
   @Input() subjects: Subject[] | null = [];
+  sections: Section[] = [];
 
   constructor(
     private firestore: Firestore,
     private sb: MatSnackBar,
     private dialog: MatDialog,
-    ) { }
+    ) {
+    of(this.subjects).subscribe(subjects => {
+      if (subjects) {
+        subjects.forEach(subject => {
+          docData(subject.section).subscribe(section => {
+            this.sections.push(section);
+          })
+        })
+      }
+    });
+  }
 
   ngOnInit(): void {
   }
@@ -52,7 +63,7 @@ export class SubjectListComponent implements OnInit {
   }
 
   subjectSection(ref: DocumentReference<Section>) {
-    return docData<Section>(ref);
+    return this.sections.find(s => s.id === ref.id);
   }
 
 }

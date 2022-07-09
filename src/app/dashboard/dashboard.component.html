@@ -2,31 +2,31 @@
 	<mat-grid-list cols="2" gutterSize="16px" rowHeight="2:1">
 	  <mat-grid-tile>
 	  	<mat-card>
-	  		<mat-card-title>Sections</mat-card-title>
+	  		<mat-card-title>Secciones</mat-card-title>
 	  		<mat-card-content>
-	  			You have {{ (sections | async)?.length }} registered sections.
+	  			Tienes {{ (sections | async)?.length }} secciones registradas.
 	  		</mat-card-content>
 	  		<mat-card-actions>
-	  			<button routerLink="/sections" mat-raised-button color="primary">List Sections</button>
+	  			<button routerLink="/sections" mat-raised-button color="primary">Listar Secciones</button>
 	  		</mat-card-actions>
 	  	</mat-card>
 	  </mat-grid-tile>
 	  <mat-grid-tile>
 	  	<mat-card>
-	  		<mat-card-title>Students</mat-card-title>
+	  		<mat-card-title>Estudiantes</mat-card-title>
 	  		<mat-card-content>
-	  			You have {{ (students | async)?.length }} registered students.
+	  			Tienes {{ (students | async)?.length }} estudiantes registrados.
 	  		</mat-card-content>
 	  		<mat-card-actions>
-	  			<button routerLink="/students" mat-raised-button color="primary">List Students</button>
+	  			<button routerLink="/students" mat-raised-button color="primary">Listar Estudiantes</button>
 	  		</mat-card-actions>
 	  	</mat-card>
 	  </mat-grid-tile>
 	  <mat-grid-tile colspan="2">
 	  	<mat-card>
-	  		<mat-card-title>Subscription Status</mat-card-title>
+	  		<mat-card-title>Estado de la Suscripci&oacute;n</mat-card-title>
 	  		<mat-card-content>
-	  			Your using the {{ account }} subscription. Your period ends in {{ expiration.toDate() | date }}
+	  			Est&aacute;s usando una suscripci&oacute;n {{ account }}. El periodo de suscripci&oacute;n acaba en {{ expiration.toDate() | date }}
 	  		</mat-card-content>
 	  		<mat-card-actions>
 	  			<!-- <button routerLink="/students" mat-raised-button color="primary">List Students</button> -->

@@ -28,7 +28,7 @@ export class PasswordRecoveryComponent implements OnInit {
     this.working = true;
     const email = this.email.value;
     sendPasswordResetEmail(this.auth, email).then(() => {
-      this.sb.open('Password reset email sended, follow directions and login with your credentials', 'Close', { duration: 2500 }).afterDismissed().subscribe(() => {
+      this.sb.open('Email enviado, sigue las instrucciones e inicia sesion', 'Cerrar', { duration: 2500 }).afterDismissed().subscribe(() => {
         this.router.navigate(['/login']);
       })
     }).catch(err => {
@@ -39,9 +39,9 @@ export class PasswordRecoveryComponent implements OnInit {
 
   get emailErrors(): string {
     if (this.email.hasError('required')) {
-      return 'You must supply an email';
+      return 'Tienes que ingresar un email';
     } else if (this.email.hasError('email')) {
-      return 'This email is not valid.';
+      return 'Este email no es valido.';
     }
     return '';
   }

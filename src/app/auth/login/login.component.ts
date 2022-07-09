@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { UntypedFormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { Auth, signInWithEmailAndPassword } from '@angular/fire/auth';
@@ -14,6 +14,8 @@ export class LoginComponent implements OnInit {
   email: UntypedFormControl = new UntypedFormControl('', Validators.email);
   password: UntypedFormControl = new UntypedFormControl('', Validators.required);
   working = false;
+  @ViewChild('emailInput') emailInput!: any;
+  @ViewChild('passwordInput') passwordInput!: any;
 
   constructor(
     private auth: Auth,
@@ -23,6 +25,12 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  onKeyUp (e: any) {
+    if (e.key === 'Enter' && this.email.valid && this.password.valid) {
+      this.login();
+    }
   }
 
   login() {
@@ -47,9 +55,9 @@ export class LoginComponent implements OnInit {
 
   get emailErrors(): string {
     if (this.email.hasError('required')) {
-      return 'You must supply an email';
+      return 'Tienes que proveer un email';
     } else if (this.email.hasError('email')) {
-      return 'This email is not valid.';
+      return 'Este email no es valido.';
     }
     return '';
   }

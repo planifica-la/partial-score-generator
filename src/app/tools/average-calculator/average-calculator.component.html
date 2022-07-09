@@ -1,15 +1,17 @@
 <div style="margin: 16px auto; width: 50%;">
-	<h2>Average Calculator</h2>
+	<h2>Calculadora de Promedios</h2>
 	<div style="display: grid; grid-gap: 8px; grid-template-columns: 3fr 1fr;">
 		<mat-form-field>
-			<mat-label>Partial</mat-label>
+			<mat-label>Parcial</mat-label>
 			<input matInput type="number" min="0" max="100" [formControl]="partial" (keyup)="onKeyUp($event)">
 		</mat-form-field>
-		<button mat-fab color="primary" (click)="addPartial()"><mat-icon>add</mat-icon></button>
+		<button mat-mini-fab color="primary" (click)="addPartial()"><mat-icon>add</mat-icon></button>
+		<button mat-raised-button color="warn" (click)="clear()">Reiniciar</button>
 	</div>
+	<small>Promedio:</small>
 	<h2>{{ average }}</h2>
 	<div>
-		<b>Given partials</b>:
+		<b>Parciales Ingresados</b>:
 		<p>{{ record.join(', ') }}</p>
 	</div>
 </div>

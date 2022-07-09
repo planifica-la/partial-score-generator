@@ -31,4 +31,9 @@ export class AverageCalculatorComponent implements OnInit {
     return this.record.length > 0 ? this.record.reduce((l, n) => l + n, 0) / this.record.length : 0;
   }
 
+  clear() {
+    this.partial.setValue(85);
+    this.record = [];
+  }
+
 }

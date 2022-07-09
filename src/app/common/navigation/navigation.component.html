@@ -6,18 +6,18 @@
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
       <ng-container *ngIf="(user$ | async); else noUser">
-      	<a mat-list-item routerLink="/sections">Sections</a>
-      	<a mat-list-item routerLink="/subjects">Subjects</a>
-      	<a mat-list-item routerLink="/students">Students</a>
-      	<a mat-list-item routerLink="/tools">Tools</a>
-      	<a mat-list-item routerLink="/users/profile">Profile</a>
-      	<button mat-list-item (click)="logout()">Log Out</button>
+      	<a mat-list-item routerLink="/sections">Secciones</a>
+      	<a mat-list-item routerLink="/subjects">Asignaturas</a>
+      	<a mat-list-item routerLink="/students">Estudiantes</a>
+      	<a mat-list-item routerLink="/tools">Herramientas</a>
+      	<a mat-list-item routerLink="/users/profile">Perfil</a>
+      	<button mat-list-item (click)="logout()">Salir</button>
       </ng-container>
       <ng-template #noUser>
-        <a mat-list-item class="nav-link" [routerLink]="['/']">Home</a>
-        <a mat-list-item class="nav-link" [routerLink]="['/about']">About</a>
-        <a mat-list-item class="nav-link" [routerLink]="['/pricing']">Pricing</a>
-        <a mat-list-item class="nav-link" [routerLink]="['/contact']">Contact</a>
+        <a mat-list-item class="nav-link" [routerLink]="['/']">Inicio</a>
+        <a mat-list-item class="nav-link" [routerLink]="['/about']">Info</a>
+        <a mat-list-item class="nav-link" [routerLink]="['/pricing']">Precios</a>
+        <a mat-list-item class="nav-link" [routerLink]="['/contact']">Contacto</a>
       </ng-template>
     </mat-nav-list>
   </mat-sidenav>
@@ -42,8 +42,8 @@
       <ng-template #noUserInTop>
         <span style="cursor: pointer;" [routerLink]="['/']">Partial Score Generator</span>
         <span style="flex: 1 1 auto;"></span>
-        <a mat-button [routerLink]="['/auth', 'registry']">Sign Up</a>
-        <a mat-raised-button [routerLink]="['/auth', 'login']">Login</a>
+        <a mat-button [routerLink]="['/auth', 'registry']">Registro</a>
+        <a mat-raised-button [routerLink]="['/auth', 'login']">Entrar</a>
       </ng-template>
     </mat-toolbar>
     <ng-content></ng-content>

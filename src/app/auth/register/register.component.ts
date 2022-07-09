@@ -55,9 +55,9 @@ export class RegisterComponent implements OnInit {
 
   get emailErrors(): string {
     if (this.email.hasError('required')) {
-      return 'You must supply an email';
+      return 'Tienes que ingresar un email';
     } else if (this.email.hasError('email')) {
-      return 'This email is not valid.';
+      return 'Este email no es valido.';
     }
     return '';
   }

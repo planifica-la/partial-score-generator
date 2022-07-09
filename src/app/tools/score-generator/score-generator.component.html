@@ -1,21 +1,21 @@
 <div style="margin: 16px auto; width: 50%;">
-	<h2>Partials Generator</h2>
+	<h2>Generador de Indicadores</h2>
 	<div style="display: grid; grid-gap: 4px; grid-template-columns: repeat(3, 1fr);">
 		<mat-form-field>
-			<mat-label>Indicators</mat-label>
+			<mat-label>Indicadores</mat-label>
 			<input matInput type="number" [formControl]="indicators" required>
 		</mat-form-field>
 		<mat-form-field>
-			<mat-label>Margin</mat-label>
+			<mat-label>Margen</mat-label>
 			<input matInput type="number" [formControl]="margin" required>
 		</mat-form-field>
 		<mat-form-field>
-			<mat-label>Average</mat-label>
+			<mat-label>Promedio</mat-label>
 			<input matInput type="number" [formControl]="average" required>
 		</mat-form-field>
 	</div>
 	<div style="margin-bottom: 16px;">
-		<button mat-raised-button color="primary" (click)="generateScores()">Generate</button>
+		<button mat-raised-button color="primary" (click)="generateScores()">Generar</button>
 	</div>
 	<div>
 		<table style="width: 100%;" mat-table [dataSource]="scores" class="mat-elevation-z8">
@@ -26,12 +26,12 @@
 			</ng-container>
 
 			<ng-container matColumnDef="indicator">
-				<th mat-header-cell *matHeaderCellDef> Indicator </th>
+				<th mat-header-cell *matHeaderCellDef> Indicador </th>
 				<td mat-cell *matCellDef="let element"> {{element.indicator}} </td>
 			</ng-container>
 
 			<ng-container matColumnDef="value">
-				<th mat-header-cell *matHeaderCellDef> Value </th>
+				<th mat-header-cell *matHeaderCellDef> Valor </th>
 				<td mat-cell *matCellDef="let element"> {{element.value}} </td>
 			</ng-container>
 
